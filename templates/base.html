@@ -1,0 +1,29 @@
+
+
+{% block content1 %}
+
+<form action="{{ url_for('home') }}" method="POST">
+    {{ form.user.label() }}{{ form.user() }}<br>
+    {{ form.username.label() }}{{ form.username() }}<br>
+    {{ form.access_token.label() }}{{ form.access_token() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+</div>
+
+{% endblock %}
+<br>
+
+<h4>Navigation</h4>
+<a href="{{ url_for('home')}}">Home Page</a><br>
+
+<a href="{{ url_for('all_names')}}">List of visited users</a><br>
+
+<a href="{{ url_for('specific_artist')}}">Search for songs of a specific artist</a><br>
+
+<a href="{{ url_for('suggested_songs')}}">Songs suggested by users</a><br>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<h1> Artist Searched: {{artistname}} </h1>
+
+{% for song in songs %}
+    <strong>{{ song }}</strong><br>
+{% endfor %}
+
+{% endblock %}

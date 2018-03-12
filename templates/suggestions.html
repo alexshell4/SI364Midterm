@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+
+<form action="{{ url_for('suggested_songs') }}" method="POST">
+    {{ form.songname.label() }}{{ form.songname() }}<br>
+    {{ form.artistname.label() }}{{ form.artistname() }}<br>
+    {{ form.rating.label() }}{{ form.rating() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+</div>
+
+{% for song in suggestions %}
+    <strong>{{ song }}</strong><br>
+{% endfor %}
+
+{% if not suggestions %}
+    Enter a suggestion to see suggestions from other users!
+{% endif %}
+
+<br><br>
+
+
+{% endblock %}
